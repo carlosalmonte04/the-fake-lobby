@@ -1,0 +1,267 @@
+body {
+  font-family: 'Montserrat'
+}
+
+nav {
+  margin-bottom: 0px !important
+}
+
+h1 {
+  font-weight: 100 !important;
+  color: white !important;
+}
+
+.main-wrapper {
+  margin: 30px;
+}
+
+.hero-section {
+  background-image: url(/hero.jpg);
+  background-position: bottom;
+  height: 500px /*REMOVE ME*/
+}
+
+.blue-gradient {
+  display: flex;
+  background: linear-gradient(#192e79, #0d1943);
+  height: 100%;
+  justify-content: center
+}
+
+.blue-gradient-text-container {
+  text-align: center;
+  width: 54%;
+}
+
+.blue-gradient-text {
+  font-size: 48px;
+  font-weight: 100
+}
+
+.title-container.custom {
+  display: flex;
+  justify-content: center;
+}
+
+.title.custom {
+  font-size: 48px;
+  font-weight: 100;
+  text-shadow: -2px 1px 0.1px #907f7f;
+  color: white;
+  border: solid;
+}
+
+.login-error-container {
+  display: flex;
+  justify-content: center;
+  animation: jumpy 1s 1;
+  transition: all 0.2s ease;
+}
+
+.login-error {
+  align-self: center;
+  display: -ms-flexbox;
+  display: flex;
+  background: linear-gradient(#a92424, #bf2929);
+  color: white;
+  width: 48%;
+  border-radius: 3px;
+  height: 20px;
+  justify-content: center;
+  box-shadow: -2px 2px #4e4e4e;
+  font-weight: 100;
+}
+
+@keyframes jumpy {
+    0%   {transform: translateY(0px);}
+    50%   {transform: translateY(-5px);}
+    75%  {transform: translateY(-10px);}
+    100%  {transform: translateY(-5px);}
+}
+
+.login-error-container.away {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-wrapper {
+  padding: 54px 38px 38px 38px;
+  padding: 27px;
+  border-radius: 7px;
+  box-shadow: -3px 1px 9px 0px #636262;
+  background-color: white;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form > input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  border-bottom: 1.5px solid #4b4b4c;
+  background-color: transparent;
+  transition: all 0.5s ease;
+  font-size: 32px;
+  font-weight: 300;
+  color: #565555;
+  z-index: 1;
+  height: 32px;
+}
+
+
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.form > label {
+  font-size: 22px;
+  font-weight: 100;
+  width: 100%;
+  color: #676767;
+  transition: all 0.2s ease;
+  transform: translateY(-30px);
+  z-index: 0;
+}
+
+div.checkbox > input.check {
+  transform: unset;
+}
+
+div.checkbox > label.check {
+  transform: unset;
+}
+
+input:focus + label, input:valid + label {
+  transform: translateY(-60px);
+  color: #172A67;
+  font-weight: 300;
+  z-index: 1
+}
+
+input:focus, input:valid {
+  border-bottom: 1.5px solid #172A67;
+  z-index: 1
+}
+
+form > div > input.primary-btn {
+  background-color: #172A67;
+  color: white;
+  font-weight: 100;
+  cursor: pointer;
+  width: 47%;
+  font-size: 26px;
+  border-radius: 6px;
+  border: solid #172A67;
+  transition: all 0.2s ease
+}
+
+form > div > input.primary-btn:hover {
+  transform: translateY(-2px);
+}
+
+form > div > .secondary-btn {
+  background-color: transparent;
+  color: #172A67;
+  font-weight: 100;
+  cursor: pointer;
+  width: 47%;
+  font-size: 26px;
+  border-radius: 6px;
+  border: solid #324967;
+  transition: all 0.2s ease;
+  margin-right: 10px;
+}
+
+form > div > .secondary-btn:hover {
+  background-color: #324967;
+  color: white;
+  transform: translateY(-2px);
+}
+
+
+/*
+  BOXED FORMS ANIMATION
+*/
+
+.box-container {
+  max-width: 350px;
+  height: 100%;
+  vertical-align: top;
+  perspective: 1000;
+}
+
+.box3d-container {
+  max-width: 350px;
+  height: 100%;
+  vertical-align: top;
+  perspective: 1000;
+}
+
+.boxed-login {
+  opacity: 1;
+  transform: translate3d(0px, -0px, 0px) rotateX(0deg) scale(1);
+  transition: all .4s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  z-index: 1
+}
+
+.boxed-login.away {
+  opacity: 1;
+  transform: translate3d(0px, -136px, -180px) rotateX(90deg);
+  z-index: -2
+}
+
+.boxed-signup {
+  opacity: 1;
+  transition: all .4s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  transform: rotateX(0deg) translate3d(0px, -284px, 0px);
+  position: absolute;
+  z-index: 1
+}
+
+.boxed-signup.away {
+  opacity: 0;
+  transform: rotateX(-90deg) translate3d(0px, 0, -173px);
+  z-index: -2
+}
+
+.boxed-login-title {
+  transition: all .4s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  transform: rotateX(0deg) translate3d(0px, -2px, 0px);
+  transition-delay: 0.3s;
+  position: absolute;
+  z-index: 1;
+}
+
+.boxed-login-title.away {
+  opacity: 0;
+  transform: rotateX(-90deg) translate3d(0px, 46px, 32px);
+  z-index: -2;
+}
+
+.boxed-signup-title {
+  transform: translate3d(0px, -0px, 0px) rotateX(0deg) scale(1);
+  transition: all .4s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+  transition-delay: 0.3s;
+  z-index: 1
+}
+
+.boxed-signup-title.away {
+  opacity: 0;
+  transform: translate3d(0px, -30px, 0px) rotateX(90deg);
+  z-index: -2;
+}
+
+
+
+
