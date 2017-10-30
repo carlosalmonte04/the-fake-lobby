@@ -28,7 +28,7 @@ export default class AuthFormsCointaner extends Component {
   }
 
   handleLogin = () => { 
-    fetch('http://localhost:8000/sessions')
+    fetch('https://the-fake-lobby-api.herokuapp.com/api/v1/sessions')
   }
 
   handleSignup = (e) => {
@@ -42,7 +42,7 @@ export default class AuthFormsCointaner extends Component {
       "body": JSON.stringify( {"username": this.state.signupUsername, "password": this.state.signupPassword, "password_confirmation": this.state.signupPasswordConf} )
     }
 
-    fetch('http://localhost:8000/api/v1/users/', requestParams)
+    fetch('https://the-fake-lobby-api.herokuapp.com/api/v1/users/', requestParams)
     .catch(error => console.log("could not create user ", error))
     .then(res => res.json())
     .then(json => {
@@ -69,7 +69,7 @@ export default class AuthFormsCointaner extends Component {
       "body": JSON.stringify( {"username": this.state.loginUsername, "password": this.state.loginPassword} )
     }
 
-    fetch('http://localhost:8000/api/v1/me/', requestParams)
+    fetch('https://the-fake-lobby-api.herokuapp.com/api/v1/me/', requestParams)
     .catch(error => console.log("could not login", error))
     .then(res => res.json())
     .then(json => {
