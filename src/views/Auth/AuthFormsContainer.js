@@ -27,10 +27,6 @@ export default class AuthFormsCointaner extends Component {
     this.setState({[input]: e.target.value})
   }
 
-  handleLogin = () => { 
-    fetch('https://the-fake-lobby-api.herokuapp.com/api/v1/sessions')
-  }
-
   handleSignup = (e) => {
     e.preventDefault()
 
