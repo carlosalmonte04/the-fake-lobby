@@ -181,6 +181,7 @@ form > div > .secondary-btn {
   border: solid #324967;
   transition: all 0.2s ease;
   margin-right: 10px;
+  text-align: center
 }
 
 form > div > .secondary-btn:hover {
@@ -217,14 +218,14 @@ form > div > .secondary-btn:hover {
 
 .boxed-login.away {
   opacity: 1;
-  transform: translate3d(0px, -136px, -180px) rotateX(90deg);
+  transform: translate3d(0px, -125px, -180px) rotateX(90deg);
   z-index: -2
 }
 
 .boxed-signup {
   opacity: 1;
   transition: all .4s cubic-bezier(0.770, 0.000, 0.175, 1.000);
-  transform: rotateX(0deg) translate3d(0px, -284px, 0px);
+  transform: rotateX(0deg) translate3d(0px, -252px, 0px);
   position: absolute;
   z-index: 1
 }
@@ -261,7 +262,6 @@ form > div > .secondary-btn:hover {
   transform: translate3d(0px, -30px, 0px) rotateX(90deg);
   z-index: -2;
 }
-
-
-
-
+.margin-bottom {
+  margin-bottom: 20px;
+}

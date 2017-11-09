@@ -14,13 +14,13 @@ const LoginForm = (props) => {
       </div>
   		<div className={`form-wrapper boxed-login ${props.isShowing ? '' : 'away'}`}>
         <form id="login-form" className="form" >
-          <input type={'text'} onChange={(e) => props.handleInputChange('loginUsername', e) } required />
+          <input type={'text'} onChange={(e) => props.handleInputChange('loginUsername', e) } defaultValue="thelobby" required />
           <label>username</label>
-          <input type={'password'} onChange={(e) => props.handleInputChange('loginPassword', e) } required />
+          <input type={'password'} onChange={(e) => props.handleInputChange('loginPassword', e) } defaultValue="thelobby" required />
           <label>password</label>
           <div className="btns-container">
-            <input type={'submit'} className="secondary-btn" value="Signup" onClick={handleSignupBtnClick}/>
-            <input type={'submit'} className="primary-btn" value="Login" onClick={props.handleLogin}/>
+            <input className="secondary-btn" defaultValue="Signup" onClick={handleSignupBtnClick}/>
+            <input type={'submit'} className="primary-btn" defaultValue="Login" onClick={props.handleLogin}/>
           </div>
         </form>
       </div>

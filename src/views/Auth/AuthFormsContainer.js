@@ -8,8 +8,8 @@ export default class AuthFormsCointaner extends Component {
 
 	state = {
 		isLoginDisplaying: true,
-    loginUsername: '',
-    loginPassword: '',
+    loginUsername: 'thelobby',
+    loginPassword: 'thelobby',
     signupUsername: '',
     signupPassword: '',
     signupPasswordConf: '',
@@ -38,7 +38,7 @@ export default class AuthFormsCointaner extends Component {
       "body": JSON.stringify( {"username": this.state.signupUsername, "password": this.state.signupPassword, "password_confirmation": this.state.signupPasswordConf} )
     }
 
-    fetch('https://the-fake-lobby-api.herokuapp.com/api/v1/users/', requestParams)
+    fetch(`${process.env.REACT_APP_API_URL}/users/`, requestParams)
     .catch(error => console.log("could not create user ", error))
     .then(res => res.json())
     .then(json => {
@@ -65,7 +65,7 @@ export default class AuthFormsCointaner extends Component {
       "body": JSON.stringify( {"username": this.state.loginUsername, "password": this.state.loginPassword} )
     }
 
-    fetch('https://the-fake-lobby-api.herokuapp.com/api/v1/me/', requestParams)
+    fetch(`${process.env.REACT_APP_API_URL}/me/`, requestParams)
     .catch(error => console.log("could not login", error))
     .then(res => res.json())
     .then(json => {

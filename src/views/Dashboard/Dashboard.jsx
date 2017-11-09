@@ -35,12 +35,14 @@ class Dashboard extends Component {
         jobSeekerUsername: '',
         date: '',
         title: '',
-        comments: ''
+        comments: '',
+        asInsiderSessions: [],
+        asJobSeekerSessions: []
     }
 
     handleSubmit = (e) => {
        e.preventDefault()
-       var requestParams = {
+       const requestParams = {
             method: 'POST', 
             headers: {
                 'content-type' : 'application/json'
@@ -55,14 +57,31 @@ class Dashboard extends Component {
         }
         fetch('http:\//localhost:8000/api/v1/lobby_sessions/', requestParams)
         .catch(error => console.log("could not create user ", error))
-        .then(res => res.json())
+        .then(res => res ? res.json() : console.log("undefined response"))
         .then(json => {
           console.log("JSON", json)
         })
     }
 
+    componentDidMount() {
+        const requestParams = {
+            method: 'GET', 
+            headers: {
+                'content-type'  : 'application/json',
+                'token'         : localStorage.getItem('token')
+            }
+        }
+        fetch('http:\//localhost:8000/api/v1/lobby_sessions/', requestParams)
+        .then(res => res.json())
+        .then(sessions => {
+            this.setState({
+                asInsiderSessions  : sessions.asInsider,
+                asJobSeekerSessions: sessions.asJobSeeker
+            })
+        })
+    }
+
     render() {
-        console.log("state", this.state)
         return (
             <div className="content animated fadeIn">
                 <div className="container-fluid">
@@ -89,8 +108,9 @@ class Dashboard extends Component {
                     <div className="row">
                         <div className="col-md-4">
                             <InfiniteCalendar
+                                className="margin-bottom"
                                 width={'100%'}
-                                height={315}
+                                height={290}
                                 selected={today}
                                 minDate={lastYear}
                               />
@@ -102,7 +122,7 @@ class Dashboard extends Component {
                                 category="As Insider"
                                 stats="Updated 3 minutes ago"
                                 statsIcon="fa fa-history"
-                                content={<table className="table"><Tasks /></table>}
+                                content={<table className="table"><Tasks sessions={this.state.asInsiderSessions} role="jobSeeker"/></table>}
                             />
                         </div>
                         <div className="col-md-4">
@@ -112,7 +132,7 @@ class Dashboard extends Component {
                                 category="As Job Seeker"
                                 stats="Updated 3 minutes ago"
                                 statsIcon="fa fa-history"
-                                content={<table className="table"><Tasks /></table>}
+                                content={<table className="table"><Tasks sessions={this.state.asJobSeekerSessions} role="insider"/></table>}
                             />
                         </div>
                     </div>

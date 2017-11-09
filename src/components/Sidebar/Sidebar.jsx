@@ -51,12 +51,6 @@ class Sidebar extends Component{
                                 <p>Dashboard</p>
                             </NavLink>
                         </li>
-                        <li className={this.activeRoute("/user")}>
-                            <NavLink to={'/user'} className="nav-link" activeClassName="active">
-                                <i className="pe-7s-user"></i>
-                                <p>User Profile</p>
-                            </NavLink>
-                        </li>
                     </ul>
                 </div>
             </div>

@@ -18,8 +18,8 @@ const SignupForm = (props) => {
         <input type={'password'} onChange={(e) => props.handleInputChange('signupPasswordConf', e) } required />
         <label>password confirmation</label>
         <div className="btns-container">
-          <input type={'submit'} className="secondary-btn" value="Login" onClick={handleLoginBtnClick} />
-          <input type={'submit'} className="primary-btn" value="Signup" onClick={props.handleSignup} />
+          <input className="secondary-btn" defaultValue="Login" onClick={handleLoginBtnClick} />
+          <input type={'submit'} className="primary-btn" defaultValue="Signup" onClick={props.handleSignup} />
         </div>
       </form>
 		</div>
