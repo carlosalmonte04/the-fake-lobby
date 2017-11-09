@@ -55,7 +55,7 @@ class Dashboard extends Component {
                 "comments": this.state.comments
             })
         }
-        fetch('http:\//localhost:8000/api/v1/lobby_sessions/', requestParams)
+        fetch(`${process.env.REACT_APP_API_URL}/lobby_sessions/`, requestParams)
         .catch(error => console.log("could not create user ", error))
         .then(res => res ? res.json() : console.log("undefined response"))
         .then(json => {
@@ -71,7 +71,7 @@ class Dashboard extends Component {
                 'token'         : localStorage.getItem('token')
             }
         }
-        fetch('http:\//localhost:8000/api/v1/lobby_sessions/', requestParams)
+        fetch(`${process.env.REACT_APP_API_URL}/lobby_sessions/`, requestParams)
         .then(res => res.json())
         .then(sessions => {
             this.setState({
